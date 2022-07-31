@@ -6,7 +6,8 @@ class MyList
   def initialize(*list)
     @list = list
   end
-end
 
-list = MyList.new(1,2,3,4)
-list.filter {|e| e.even?}
+  def each
+    @list.each { |e| yield(e) if block_given?}
+  end
+end
